@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TaxiApp.Core.Application\TaxiApp.Core.Application.csproj" />
-      <ProjectReference Include="..\TaxiApp.Infrastructure.Persistence\TaxiApp.Infrastructure.Persistence.csproj" />
+      <ProjectReference Include="..\..\Core\TaxiApp.Core.Application\TaxiApp.Core.Application.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\TaxiApp.Infrastructure.Persistence\TaxiApp.Infrastructure.Persistence.csproj" />
     </ItemGroup>
 
     <ItemGroup>
