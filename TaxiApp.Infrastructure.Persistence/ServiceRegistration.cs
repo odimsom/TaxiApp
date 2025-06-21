@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TaxiApp.Core.Domain.Repository;
 using TaxiApp.Core.Domain.Repository.Common;
 using TaxiApp.Infrastructure.Persistence.Context;
+using TaxiApp.Infrastructure.Persistence.Repository;
 using TaxiApp.Infrastructure.Persistence.Repository.Common;
 
 namespace TaxiApp.Infrastructure.Persistence;
@@ -28,6 +30,11 @@ public static class ServiceRegistration
         services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         
         // Register Repositories
-        
+        services.AddTransient<ITaxiRepository, TaxiRepository>();
+        services.AddTransient<ITripRepository, TripRepository>();
+        services.AddTransient<ITripDetailRepository, TripDetailRepository>();
+        services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IUserGroupRepository, UserGroupRepository>();
+        services.AddTransient<IUserGroupDetailRepository, UserGroupDetailRepository>();
     }
 }
