@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiApp.Core.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiApp.Infrastructure.Persistence", "TaxiApp.Infrastructure.Persistence\TaxiApp.Infrastructure.Persistence.csproj", "{1779DBC1-A1F3-4654-A901-AA99B0C0DCF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiApp.Presentation.WebApi", "TaxiApp.Presentation.WebApi\TaxiApp.Presentation.WebApi.csproj", "{19E53302-6D0D-4CAC-8C6E-370BEE04827D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 		{6453C20A-59A4-404E-B5AB-5FE4578266B3} = {16E601AB-CC95-477F-9CBB-8FEF4A115885}
 		{2747C87C-8AE7-4892-9E94-C78C7CFFB556} = {16E601AB-CC95-477F-9CBB-8FEF4A115885}
 		{1779DBC1-A1F3-4654-A901-AA99B0C0DCF3} = {5FC43089-72BA-4C63-B0DA-9108FF91994B}
+		{19E53302-6D0D-4CAC-8C6E-370BEE04827D} = {5823740F-C1EB-496F-B4AF-FDBC2CA6F9C3}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{09A8C78A-8602-46DA-8871-FF64C39DD37A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -47,5 +50,9 @@ Global
 		{1779DBC1-A1F3-4654-A901-AA99B0C0DCF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1779DBC1-A1F3-4654-A901-AA99B0C0DCF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1779DBC1-A1F3-4654-A901-AA99B0C0DCF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E53302-6D0D-4CAC-8C6E-370BEE04827D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E53302-6D0D-4CAC-8C6E-370BEE04827D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E53302-6D0D-4CAC-8C6E-370BEE04827D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E53302-6D0D-4CAC-8C6E-370BEE04827D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
