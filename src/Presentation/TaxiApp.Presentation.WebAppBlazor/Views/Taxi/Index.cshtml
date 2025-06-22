@@ -1,0 +1,37 @@
+@model IEnumerable<TaxiApp.Core.Application.DTO.TaxiDto>
+
+@{
+    ViewData["Title"] = "Taxis";
+}
+
+<h1 class="text-3xl font-bold text-indigo-700 mb-6">Listado de Taxis</h1>
+
+<a asp-action="Create" class="inline-block mb-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+    + Nuevo Taxi
+</a>
+
+<table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-indigo-600 text-white">
+    <tr>
+        <th class="px-4 py-3 text-left">ID</th>
+        <th class="px-4 py-3 text-left">Placa</th>
+        <th class="px-4 py-3 text-left">Viaje ID</th>
+        <th class="px-4 py-3 text-left">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var taxi in Model)
+    {
+        <tr class="border-b hover:bg-gray-100">
+            <td class="px-4 py-2">@taxi.Id</td>
+            <td class="px-4 py-2">@taxi.Plate</td>
+            <td class="px-4 py-2">@taxi.TripId</td>
+            <td class="px-4 py-2 space-x-2">
+                <a asp-action="Edit" asp-route-id="@taxi.Id" class="text-blue-600 hover:underline">Editar</a>
+                <a asp-action="Details" asp-route-id="@taxi.Id" class="text-green-600 hover:underline">Ver</a>
+                <a asp-action="Delete" asp-route-id="@taxi.Id" class="text-red-600 hover:underline">Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

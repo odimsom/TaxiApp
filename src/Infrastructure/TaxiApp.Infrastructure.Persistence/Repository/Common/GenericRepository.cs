@@ -7,9 +7,9 @@ namespace TaxiApp.Infrastructure.Persistence.Repository.Common;
 
 public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
 {
-    private readonly DbContext _context;
+    private readonly TaxiAppContext _context;
 
-    public GenericRepository(DbContext context)
+    public GenericRepository(TaxiAppContext context)
     {
         _context = context;
     }

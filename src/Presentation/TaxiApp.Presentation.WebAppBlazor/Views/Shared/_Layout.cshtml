@@ -1,50 +1,44 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - TaxiApp.Presentation.WebAppBlazor</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/TaxiApp.Presentation.WebAppBlazor.styles.css" asp-append-version="true"/>
+    <title>@ViewData["Title"] - TaxiApp</title>
+
+    <!-- Tailwind CSS CDN (para desarrollo rápido) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TaxiApp.Presentation.WebAppBlazor.styles.css" asp-append-version="true" />
 </head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TaxiApp.Presentation.WebAppBlazor</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<body class="bg-gray-100 text-gray-800 min-h-screen flex flex-col">
+
+<header class="bg-white shadow-md">
+    <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="@Url.Action("Index", "Home")" class="text-2xl font-semibold text-indigo-600 hover:text-indigo-700">
+            TaxiApp
+        </a>
+        <ul class="flex space-x-6 text-lg font-medium">
+            <li><a href="@Url.Action("Index", "Home")" class="hover:text-indigo-600">Home</a></li>
+            <li><a href="@Url.Action("Index", "Taxi")" class="hover:text-indigo-600">Taxis</a></li>
+            <li><a href="@Url.Action("Index", "Trip")" class="hover:text-indigo-600">Trips</a></li>
+            <li><a href="@Url.Action("Index", "User")" class="hover:text-indigo-600">Users</a></li>
+            <li><a href="@Url.Action("Index", "UserGroup")" class="hover:text-indigo-600">User Groups</a></li>
+        </ul>
     </nav>
 </header>
-<div class="container">
-    <main role="main" class="pb-3">
+
+<div class="flex-grow container mx-auto px-4 py-6">
+    <main role="main" class="max-w-7xl mx-auto">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2025 - TaxiApp.Presentation.WebAppBlazor - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
+<footer class="bg-white border-t mt-8 py-4 text-center text-gray-600 text-sm">
+    &copy; 2025 - TaxiApp - All rights reserved.
 </footer>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+
 @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

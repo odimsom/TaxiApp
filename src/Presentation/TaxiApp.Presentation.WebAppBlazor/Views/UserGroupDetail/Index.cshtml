@@ -1,0 +1,39 @@
+@model ICollection<TaxiApp.Core.Application.DTO.UserGroupDetailDto>
+
+@{
+    ViewData["Title"] = "User Group Details";
+}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold my-6">User Group Details</h1>
+
+    <a href="@Url.Action("Create")" class="inline-block mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Add New Detail
+    </a>
+
+    <table class="min-w-full bg-white border rounded shadow">
+        <thead class="bg-gray-100">
+        <tr>
+            <th class="text-left py-2 px-4 border-b">Id</th>
+            <th class="text-left py-2 px-4 border-b">User</th>
+            <th class="text-left py-2 px-4 border-b">User Group</th>
+            <th class="text-left py-2 px-4 border-b">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var detail in Model)
+        {
+            <tr class="hover:bg-gray-50">
+                <td class="py-2 px-4 border-b">@detail.Id</td>
+                <td class="py-2 px-4 border-b">@detail.User?.FirstName @detail.User?.LastName</td>
+                <td class="py-2 px-4 border-b">Group ID: @detail.UserGroupId</td>
+                <td class="py-2 px-4 border-b">
+                    <a href="@Url.Action("Details", new { id = detail.Id })" class="text-blue-600 hover:underline mr-2">Details</a>
+                    <a href="@Url.Action("Edit", new { id = detail.Id })" class="text-green-600 hover:underline mr-2">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = detail.Id })" class="text-red-600 hover:underline">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

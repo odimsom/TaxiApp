@@ -1,8 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model TaxiApp.Core.Application.DTO.WebApp.HomeDashboardDto
+
+@{
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1 class="text-4xl font-bold mb-8 text-indigo-700">TaxiApp Dashboard</h1>
+
+<!-- Tarjetas resumen -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-lg font-medium text-gray-500">Total Taxis</h2>
+        <p class="text-3xl font-bold text-indigo-600">@Model.TotalTaxis</p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-lg font-medium text-gray-500">Taxis en Viaje</h2>
+        <p class="text-3xl font-bold text-green-600">@Model.TaxisEnViaje</p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-lg font-medium text-gray-500">Viajes este Mes</h2>
+        <p class="text-3xl font-bold text-purple-600">@Model.TotalTripsMes</p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-lg font-medium text-gray-500">Viajes en Curso</h2>
+        <p class="text-3xl font-bold text-yellow-600">@Model.TripsEnCurso</p>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-lg font-medium text-gray-500">Usuarios Registrados</h2>
+        <p class="text-3xl font-bold text-pink-600">@Model.TotalUsuarios</p>
+    </div>
+</div>
+
+<!-- Últimos viajes -->
+<h2 class="text-2xl font-bold text-gray-800 mb-4">Últimos 5 Viajes</h2>
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <thead class="bg-indigo-600 text-white">
+        <tr>
+            <th class="py-3 px-4 text-left">ID</th>
+            <th class="py-3 px-4 text-left">Taxi</th>
+            <th class="py-3 px-4 text-left">Usuario</th>
+            <th class="py-3 px-4 text-left">Fecha de Inicio</th>
+            <th class="py-3 px-4 text-left">Estado</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var trip in Model.UltimosViajes)
+        {
+            <tr class="border-b hover:bg-gray-100 transition">
+                <td class="py-2 px-4">@trip.Id</td>
+                <td class="py-2 px-4">@trip.TaxiPlate</td>
+                <td class="py-2 px-4">@trip.UsuarioNombre</td>
+                <td class="py-2 px-4">@trip.StartDate.ToString("g")</td>
+                <td class="py-2 px-4">
+                    @if (trip.Estado == "En Curso")
+                    {
+                        <span class="inline-block bg-yellow-200 text-yellow-800 text-sm font-medium px-3 py-1 rounded-full">En Curso</span>
+                    }
+                    else
+                    {
+                        <span class="inline-block bg-green-200 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Completado</span>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
 </div>

@@ -1,0 +1,40 @@
+@model IEnumerable<TaxiApp.Core.Application.DTO.TripDto>
+@{
+    ViewData["Title"] = "Trips";
+}
+
+<h1 class="text-2xl font-bold mb-4">Trips</h1>
+
+<a asp-action="Create" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mb-4 inline-block">
+    + New Trip
+</a>
+
+<table class="table-auto w-full border border-gray-300">
+    <thead class="bg-gray-100">
+    <tr>
+        <th class="px-4 py-2">Start Date</th>
+        <th class="px-4 py-2">End Date</th>
+        <th class="px-4 py-2">From</th>
+        <th class="px-4 py-2">To</th>
+        <th class="px-4 py-2">User</th>
+        <th class="px-4 py-2">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var trip in Model)
+    {
+        <tr class="border-t">
+            <td class="px-4 py-2">@trip.StartDate.ToShortDateString()</td>
+            <td class="px-4 py-2">@trip.EndDate.ToShortDateString()</td>
+            <td class="px-4 py-2">@trip.From</td>
+            <td class="px-4 py-2">@trip.To</td>
+            <td class="px-4 py-2">@trip.UserId</td>
+            <td class="px-4 py-2">
+                <a asp-action="Details" asp-route-id="@trip.Id" class="text-blue-600 hover:underline">View</a> |
+                <a asp-action="Edit" asp-route-id="@trip.Id" class="text-yellow-600 hover:underline">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@trip.Id" class="text-red-600 hover:underline">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

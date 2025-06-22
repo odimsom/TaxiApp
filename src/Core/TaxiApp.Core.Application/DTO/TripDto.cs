@@ -1,6 +1,8 @@
+using TaxiApp.Core.Application.DTO.Common;
+
 namespace TaxiApp.Core.Application.DTO;
 
-public class TripDto
+public class TripDto : BasicDto<int>
 {
     public required DateTime StartDate { get; set; }
     public required DateTime EndDate { get; set; }

@@ -1,0 +1,17 @@
+@model TaxiApp.Core.Application.DTO.TripDetailDto
+@{
+    ViewData["Title"] = "Trip Detail Details";
+}
+
+<h1 class="text-3xl font-bold mb-6">Trip Detail Details</h1>
+
+<div class="max-w-lg space-y-3">
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Longitude:</strong> @Model.Longitude</p>
+    <p><strong>Latitude:</strong> @Model.Latitude</p>
+    <p><strong>Date:</strong> @Model.Date.ToString("yyyy-MM-dd HH:mm")</p>
+    <p><strong>Trip ID:</strong> @Model.TripId</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="inline-block mt-6 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded">Edit</a>
+<a asp-action="Index" class="ml-4 text-gray-600 hover:underline">Back to List</a>

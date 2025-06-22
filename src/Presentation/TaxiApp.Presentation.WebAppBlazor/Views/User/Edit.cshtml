@@ -1,0 +1,31 @@
+@model TaxiApp.Core.Application.DTO.UserDto
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1 class="text-2xl font-bold mb-4">Edit User</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-4">
+        <label asp-for="DocumentId" class="block font-medium">Document ID</label>
+        <input asp-for="DocumentId" class="form-input w-full border p-2 rounded" />
+        <span asp-validation-for="DocumentId" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="FirstName" class="block font-medium">First Name</label>
+        <input asp-for="FirstName" class="form-input w-full border p-2 rounded" />
+        <span asp-validation-for="FirstName" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="LastName" class="block font-medium">Last Name</label>
+        <input asp-for="LastName" class="form-input w-full border p-2 rounded" />
+        <span asp-validation-for="LastName" class="text-red-500 text-sm"></span>
+    </div>
+
+    <button type="submit" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">Save Changes</button>
+    <a asp-action="Index" class="ml-2 text-gray-600 hover:text-gray-800">Cancel</a>
+</form>

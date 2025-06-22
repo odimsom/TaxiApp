@@ -1,0 +1,35 @@
+@model ICollection<TaxiApp.Core.Application.DTO.UserGroupDto>
+
+@{
+    ViewData["Title"] = "User Groups";
+}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold my-6">User Groups</h1>
+    
+    <a href="@Url.Action("Create")" class="inline-block mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Create New Group</a>
+    
+    <table class="min-w-full bg-white border rounded shadow">
+        <thead class="bg-gray-100">
+        <tr>
+            <th class="text-left py-2 px-4 border-b">Id</th>
+            <th class="text-left py-2 px-4 border-b">Details Count</th>
+            <th class="text-left py-2 px-4 border-b">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var group in Model)
+        {
+            <tr class="hover:bg-gray-50">
+                <td class="py-2 px-4 border-b">@group.Id</td>
+                <td class="py-2 px-4 border-b">@group.UserGroupDetails?.Count ?? 0</td>
+                <td class="py-2 px-4 border-b">
+                    <a href="@Url.Action("Details", new { id = group.Id })" class="text-blue-600 hover:underline mr-2">Details</a>
+                    <a href="@Url.Action("Edit", new { id = group.Id })" class="text-green-600 hover:underline mr-2">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = group.Id })" class="text-red-600 hover:underline">Delete</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

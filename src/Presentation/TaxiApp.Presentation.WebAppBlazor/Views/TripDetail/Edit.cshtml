@@ -1,0 +1,38 @@
+@model TaxiApp.Core.Application.DTO.TripDetailDto
+@{
+    ViewData["Title"] = "Edit Trip Detail";
+}
+
+<h1 class="text-3xl font-bold mb-6">Edit Trip Detail</h1>
+
+<form asp-action="Edit" method="post" class="max-w-lg space-y-4">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Longitude" class="block font-semibold mb-1"></label>
+        <input asp-for="Longitude" class="w-full border border-gray-300 rounded px-3 py-2" />
+        <span asp-validation-for="Longitude" class="text-red-600 text-sm"></span>
+    </div>
+    <div>
+        <label asp-for="Latitude" class="block font-semibold mb-1"></label>
+        <input asp-for="Latitude" class="w-full border border-gray-300 rounded px-3 py-2" />
+        <span asp-validation-for="Latitude" class="text-red-600 text-sm"></span>
+    </div>
+    <div>
+        <label asp-for="Date" class="block font-semibold mb-1"></label>
+        <input asp-for="Date" type="datetime-local" class="w-full border border-gray-300 rounded px-3 py-2" />
+        <span asp-validation-for="Date" class="text-red-600 text-sm"></span>
+    </div>
+    <div>
+        <label asp-for="TripId" class="block font-semibold mb-1"></label>
+        <input asp-for="TripId" type="number" class="w-full border border-gray-300 rounded px-3 py-2" />
+        <span asp-validation-for="TripId" class="text-red-600 text-sm"></span>
+    </div>
+
+    <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-6 rounded">Save</button>
+    <a asp-action="Index" class="ml-4 text-gray-600 hover:underline">Cancel</a>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

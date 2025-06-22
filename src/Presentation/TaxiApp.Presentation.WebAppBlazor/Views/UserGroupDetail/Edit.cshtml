@@ -1,0 +1,34 @@
+@model TaxiApp.Core.Application.DTO.UserGroupDetailDto
+
+@{
+    ViewData["Title"] = "Edit User Group Detail";
+}
+
+<div class="max-w-lg mx-auto p-4 bg-white rounded shadow mt-8">
+    <h1 class="text-2xl font-bold mb-4">Edit User Group Detail</h1>
+
+    <form asp-action="Edit" method="post" class="space-y-4">
+        <input type="hidden" asp-for="Id" />
+
+        <div>
+            <label asp-for="UserId" class="block font-medium mb-1"></label>
+            <input asp-for="UserId" class="w-full border rounded px-3 py-2" />
+            <span asp-validation-for="UserId" class="text-red-600 text-sm"></span>
+        </div>
+
+        <div>
+            <label asp-for="UserGroupId" class="block font-medium mb-1"></label>
+            <input asp-for="UserGroupId" class="w-full border rounded px-3 py-2" />
+            <span asp-validation-for="UserGroupId" class="text-red-600 text-sm"></span>
+        </div>
+
+        <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+            Save Changes
+        </button>
+        <a asp-action="Index" class="ml-4 text-gray-600 hover:underline">Cancel</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

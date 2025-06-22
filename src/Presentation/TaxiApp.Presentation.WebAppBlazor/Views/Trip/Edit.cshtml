@@ -1,0 +1,48 @@
+@model TaxiApp.Core.Application.DTO.TripDto
+@{
+    ViewData["Title"] = "Edit Trip";
+}
+
+<h1 class="text-2xl font-bold mb-4">Edit Trip</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-4">
+        <label asp-for="StartDate" class="block font-medium">Start Date</label>
+        <input asp-for="StartDate" type="datetime-local" class="form-input w-full border p-2 rounded" />
+        <span asp-validation-for="StartDate" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="EndDate" class="block font-medium">End Date</label>
+        <input asp-for="EndDate" type="datetime-local" class="form-input w-full border p-2 rounded" />
+        <span asp-validation-for="EndDate" class="text-red-500 text-sm"></span>
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="From" class="block font-medium">From</label>
+        <input asp-for="From" class="form-input w-full border p-2 rounded" />
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="To" class="block font-medium">To</label>
+        <input asp-for="To" class="form-input w-full border p-2 rounded" />
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="Rating" class="block font-medium">Rating</label>
+        <input asp-for="Rating" type="number" min="1" max="5" class="form-input w-full border p-2 rounded" />
+    </div>
+
+    <div class="mb-4">
+        <label asp-for="UserId" class="block font-medium">User ID</label>
+        <input asp-for="UserId" class="form-input w-full border p-2 rounded" />
+        <span asp-validation-for="UserId" class="text-red-500 text-sm"></span>
+    </div>
+
+    <button type="submit" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">
+        Save Changes
+    </button>
+    <a asp-action="Index" class="ml-2 text-gray-600 hover:text-gray-800">Cancel</a>
+</form>

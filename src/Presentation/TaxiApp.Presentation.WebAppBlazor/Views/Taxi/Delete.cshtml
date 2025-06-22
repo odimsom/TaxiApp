@@ -1,0 +1,27 @@
+@model TaxiApp.Core.Application.DTO.TaxiDto
+
+@{
+    ViewData["Title"] = "Eliminar Taxi";
+}
+
+<h1 class="text-3xl font-bold text-red-600 mb-6">¿Eliminar Taxi?</h1>
+
+<div class="bg-white shadow rounded p-6 space-y-4 max-w-xl">
+    <div>
+        <strong class="text-gray-700">ID:</strong> @Model.Id
+    </div>
+    <div>
+        <strong class="text-gray-700">Placa:</strong> @Model.Plate
+    </div>
+    <div>
+        <strong class="text-gray-700">ID de Viaje:</strong> @Model.TripId
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post" class="mt-6">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+            Eliminar
+        </button>
+        <a asp-action="Index" class="text-sm text-gray-600 hover:underline ml-4">Cancelar</a>
+    </form>
+</div>

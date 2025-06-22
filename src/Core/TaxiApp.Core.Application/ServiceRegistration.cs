@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using TaxiApp.Core.Application.Interfaces;
 using TaxiApp.Core.Application.Interfaces.Common;
@@ -12,6 +13,8 @@ public static class ServiceRegistration
     {
         // generic service registrations
         services.AddTransient(typeof(IGenericService<,>), typeof(GenericService<,>));
+
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
         
         // registration
         services.AddTransient<ITaxiService, TaxiService>();

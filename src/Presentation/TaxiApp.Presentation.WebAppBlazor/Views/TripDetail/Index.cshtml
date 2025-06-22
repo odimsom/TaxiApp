@@ -1,0 +1,49 @@
+@model IEnumerable<TaxiApp.Core.Application.DTO.TripDetailDto>
+@{
+    ViewData["Title"] = "Trip Details List";
+}
+
+<h1 class="text-3xl font-bold mb-6">Trip Details</h1>
+
+<a asp-action="Create" class="inline-block mb-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded">
+    + Add New Trip Detail
+</a>
+
+<table class="min-w-full table-auto border-collapse border border-gray-300">
+    <thead>
+        <tr class="bg-gray-100">
+            <th class="border border-gray-300 px-4 py-2 text-left">ID</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Longitude</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Latitude</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Date</th>
+            <th class="border border-gray-300 px-4 py-2 text-left">Trip ID</th>
+            <th class="border border-gray-300 px-4 py-2 text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Any())
+        {
+            foreach (var detail in Model)
+            {
+                <tr class="hover:bg-gray-50">
+                    <td class="border border-gray-300 px-4 py-2">@detail.Id</td>
+                    <td class="border border-gray-300 px-4 py-2">@detail.Longitude</td>
+                    <td class="border border-gray-300 px-4 py-2">@detail.Latitude</td>
+                    <td class="border border-gray-300 px-4 py-2">@detail.Date.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td class="border border-gray-300 px-4 py-2">@detail.TripId</td>
+                    <td class="border border-gray-300 px-4 py-2 text-center space-x-2">
+                        <a asp-action="Details" asp-route-id="@detail.Id" class="text-blue-600 hover:underline">Details</a>
+                        <a asp-action="Edit" asp-route-id="@detail.Id" class="text-yellow-600 hover:underline">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@detail.Id" class="text-red-600 hover:underline">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="border border-gray-300 px-4 py-2 text-center italic text-gray-500">No trip details found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
